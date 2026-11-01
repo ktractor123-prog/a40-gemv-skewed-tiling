@@ -1,0 +1,35 @@
+GPU: NVIDIA A40
+Python Version: 3.12.3
+PyTorch Version: 2.8.0+cu128
+CUDA Version: 12.8
+Driver Version: 595.91.07
+L2 Cache: 6.0 MB
+Theoretical Bandwidth: 696.0 GB/s
+
+WARNING: Logical bytes != DRAM transactions. Achieved GB/s > theoretical DRAM ceiling indicates coalescing reuse. The theoretical ceiling applies to real traffic.
+
+Quattra Tiled Benchmark (3 rounds of 20 iters per L, median & p95 reported)
+L     N         Mod_med    Mod_p95    Cond_med   Cond_p95   C16_med    C16_p95    Tile_med   Tile_p95   Speedup   Naive GB/s   Tiled GB/s   Max Abs Diff 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+16    256       0.00300    0.00321    0.00304    0.00316    0.00304    0.00310    0.00304    0.00314    0.998     1.69         1.68         4.77e-07     
+32    1024      0.00305    0.00324    0.00304    0.00321    0.00303    0.00313    0.00312    0.00320    0.972     6.75         6.56         4.77e-07     
+48    2304      0.00305    0.00321    0.00298    0.00311    0.00297    0.00308    0.00317    0.00319    0.939     15.50        14.55        4.77e-07     
+64    4096      0.00309    0.00313    0.00297    0.00310    0.00300    0.00309    0.00317    0.00321    0.937     27.55        25.81        4.77e-07     
+128   16384     0.00345    0.00349    0.00312    0.00319    0.00297    0.00313    0.00323    0.00326    0.921     110.34       101.59       4.77e-07     
+256   65536     0.00568    0.00571    0.00525    0.00529    0.00404    0.00406    0.00401    0.00406    1.007     324.76       326.90       9.54e-07     
+512   262144    0.01452    0.01473    0.01388    0.01393    0.00853    0.00859    0.00753    0.00756    1.133     614.44       696.45       9.54e-07     
+1024  1048576   0.05275    0.05291    0.05415    0.05419    0.02755    0.02764    0.02587    0.02593    1.065     761.25       810.66       9.54e-07     
+2048  4194304   0.22271    0.22333    0.20684    0.20698    0.10493    0.10503    0.10019    0.10025    1.047     799.46       837.27       9.54e-07     
+4096  16777216  0.88426    0.88467    0.82875    0.85573    0.52296    0.52356    0.48240    0.48282    1.084     641.62       695.57       9.54e-07     
+8192  67108864  4.47661    4.48817    4.43037    4.43314    2.31546    2.31684    2.06847    2.07124    1.119     579.66       648.87       9.54e-07     
+
+Rule 3 Distribution Audit (Per-Round Separation Verification):
+L     Tiled Rounds (ms)               Slowest Tiled  Fastest Control  Separation Pass
+-------------------------------------------------------------------------------------
+2048  [0.10016, 0.10019, 0.10020]     0.10037        0.10185          PASS           
+4096  [0.48089, 0.48240, 0.48253]     0.48294        0.52194          PASS           
+8192  [2.06829, 2.06847, 2.06854]     2.07172        2.31300          PASS           
+
+Pre-Registered Pass/Fail Evaluation:
+Pre-Registered Rules: (1) >3% speedup vs best control, (2) wins at >=2 of {2048, 4096, 8192}, (3) slowest-of-3 tiled < fastest-of-3 control.
+RESULT: PASS — skew_tiled achieved >= 3% speedup with statistically separating bounds at 3/3 large sizes.

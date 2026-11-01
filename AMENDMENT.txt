@@ -1,0 +1,1 @@
+Rule 3 text amended from 'slowest-of-3' to 'slowest-of-60' on 2026-10-31; the audit computation always used 60-sample extremes; the registered rule at run time was the of-3 text; results pass under both readings.
