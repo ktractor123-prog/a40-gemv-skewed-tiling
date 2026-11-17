@@ -1,0 +1,39 @@
+=== TIMESTAMP ===
+2026-11-16T18:23:22Z
+=== HARDWARE & DRIVER ===
+Driver Version                                         : 595.91.07
+CUDA Version                                           : 13.2
+    Product Name                                       : NVIDIA A40
+    VBIOS Version                                      : 94.02.5C.00.03
+    FB Memory Usage
+    BAR1 Memory Usage
+    Conf Compute Protected Memory Usage
+        Memory                                         : 0 %
+        Unrepairable Memory                            : N/A
+        Memory Current Temp                            : N/A
+        Memory Max Operating Temp                      : N/A
+        Current Power Limit                            : 300.00 W
+        Requested Power Limit                          : 300.00 W
+        Default Power Limit                            : 300.00 W
+        Min Power Limit                                : 100.00 W
+        Max Power Limit                                : 300.00 W
+    GPU Memory Power Readings 
+        Current Power Limit                            : N/A
+        Requested Power Limit                          : N/A
+        Default Power Limit                            : N/A
+        Min Power Limit                                : N/A
+        Max Power Limit                                : N/A
+        Graphics                                       : 210 MHz
+        Memory                                         : 405 MHz
+        Graphics                                       : Requested functionality has been deprecated
+=== NVCC & HOST ===
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Fri_Feb_21_20:23:50_PST_2025
+Cuda compilation tools, release 12.8, V12.8.93
+Build cuda_12.8.r12.8/compiler.35583870_0
+Linux d5dc6669e47e 6.8.0-147-generic #147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+=== SHA256 CHECKSUMS ===
+503f89f2a9d54f387d446dd1f5f717b8f4a484f2e3c95773335bb303d079ad48  skew_tiled_rev04.cu
+5c69c27f9f5e8e4bdb3a4ca86d2efe14d31326b1c4c3cba6c6d76af9a197db4d  run_a40_bench.py
+69e55a6959ecde626b7f9b644f2f4eea50cf3dfc168974d284d777dde8b54ca3  skew_tiled_rev04

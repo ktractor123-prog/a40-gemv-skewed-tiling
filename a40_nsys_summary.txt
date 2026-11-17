@@ -1,0 +1,1 @@
+bash: nsys: command not found
